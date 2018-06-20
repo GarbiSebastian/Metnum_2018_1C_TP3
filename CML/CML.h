@@ -14,9 +14,6 @@ public:
 
     void resolver(vector< vector<int> >& A, vector<int>& b, vector<double>& x);
 private:
-    
-
 };
 
 #endif /* CML_H */
-

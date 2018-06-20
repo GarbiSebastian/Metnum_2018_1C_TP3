@@ -111,14 +111,14 @@ void CML::resolver(vector<vector<int> >& A, vector<int>& b, vector<double>& x) {
     vector<vector<double> > AtxA(n, vector<double>(n, 0));
     vector<double> Atxb(n, 0);
     transponer(A, At);
-    cout << "At ="; imprimirOctave(At);
+//    cout << "At ="; imprimirOctave(At);
     At_por_A(At, AtxA);
-    cout << "AtxA ="; imprimirOctave(AtxA);
+//    cout << "AtxA ="; imprimirOctave(AtxA);
     A_por_v(At, b, Atxb);
-    cout << "Atxb ="; imprimirOctave(Atxb);
+//    cout << "Atxb ="; imprimirOctave(Atxb);
     eliminacionGaussiana(AtxA,Atxb);
-    cout << "AtxA_eg ="; imprimirOctave(AtxA);
-    cout << "Atxb_eg ="; imprimirOctave(Atxb);
+//    cout << "AtxA_eg ="; imprimirOctave(AtxA);
+//    cout << "Atxb_eg ="; imprimirOctave(Atxb);
     backwardSubstitution(AtxA,Atxb,x);
 
 }
