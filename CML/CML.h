@@ -13,6 +13,7 @@ public:
     virtual ~CML();
 
     void resolver(vector< vector<int> >& A, vector<int>& b, vector<double>& x);
+    void eg(vector< vector<double> >& A, vector<double>& b);
 private:
 };
 

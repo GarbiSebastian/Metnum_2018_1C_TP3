@@ -1,6 +1,7 @@
 #include <cassert>
 #include <cmath>
 #include <iostream>
+#include <sstream>
 
 #include "CML.h"
 #include "constantes.h"
@@ -66,6 +67,22 @@ void At_por_A(vector<vector<NumericType> >& At, vector<vector<double> >& AtxA) {
     }
 }
 
+void permutarFilaConNoNula(vector< vector<double> >& A, vector<double>& b, unsigned int j){
+    unsigned int m = A.size();
+    unsigned int i = j+1;
+    while( i < m && fabs(A[i][j])< epsilon){
+        i++;
+    }
+    if(i==m){
+        //debería explotar
+    }
+    double aux;
+    for (unsigned int k = j; k < m; k++) {
+        swap(A[j][k],A[i][k]);
+    }
+    swap(b[j],b[i]);
+}
+
 void eliminacionGaussiana(vector< vector<double> >& A, vector<double>& b) {
     double m_ij, a_ij, a_jj;
     unsigned int m = A.size();
@@ -74,6 +91,9 @@ void eliminacionGaussiana(vector< vector<double> >& A, vector<double>& b) {
     assert(m==b.size());
     for (unsigned int j = 0; j < m; j++) {
         a_jj = A[j][j];
+        if(fabs(a_jj)< epsilon){ //ajj=0
+            permutarFilaConNoNula(A,b,j);
+        }
         for (unsigned int i = j + 1; i < m; i++) {
             a_ij = A[i][j];
             if (fabs(a_ij) > epsilon) {//if a_ij != 0
@@ -86,6 +106,10 @@ void eliminacionGaussiana(vector< vector<double> >& A, vector<double>& b) {
             A[i][j] = 0;
         }
     }
+}
+
+void CML::eg(vector< vector<double> >& A, vector<double>& b){
+    eliminacionGaussiana(A,b);
 }
 
 void backwardSubstitution(vector< vector<double> >& A,const vector<double>& b, vector<double>& x) {
