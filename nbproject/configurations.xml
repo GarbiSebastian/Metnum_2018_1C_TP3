@@ -50,8 +50,10 @@
           <stripSymbols>true</stripSymbols>
           <architecture>2</architecture>
           <standard>8</standard>
-          <commandLine>-lpng</commandLine>
         </ccTool>
+        <linkerTool>
+          <commandLine>-lpng</commandLine>
+        </linkerTool>
       </compileType>
       <item path="CML.cpp" ex="false" tool="1" flavor2="0">
       </item>

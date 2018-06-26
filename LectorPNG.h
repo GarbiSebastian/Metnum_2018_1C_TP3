@@ -29,7 +29,7 @@ public:
 	std::string mostramealgo();
 	int pos(int i, int j);
 private:
-	char* filemane;
+	char filemane[100];
 	FILE* fileptr;
 	png_structp png_ptr;
 	png_infop info_ptr;
