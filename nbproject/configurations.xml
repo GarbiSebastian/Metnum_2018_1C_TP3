@@ -96,6 +96,9 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <linkerTool>
+          <commandLine>-lpng</commandLine>
+        </linkerTool>
       </compileType>
       <item path="CML.cpp" ex="false" tool="1" flavor2="0">
       </item>

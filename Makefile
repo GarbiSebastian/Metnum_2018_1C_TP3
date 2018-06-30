@@ -48,6 +48,7 @@
 MKDIR=mkdir
 CP=cp
 CCADMIN=CCadmin
+TP=tp3
 
 
 # build
@@ -56,7 +57,7 @@ build: .build-post
 .build-pre:
 # Add your pre 'build' code here...
 
-.build-post: .build-impl
+.build-post: .build-impl .tp
 # Add your post 'build' code here...
 
 
@@ -67,6 +68,7 @@ clean: .clean-post
 # Add your pre 'clean' code here...
 
 .clean-post: .clean-impl
+	rm -rf ${TP}
 # Add your post 'clean' code here...
 
 
@@ -86,7 +88,7 @@ all: .all-post
 .all-pre:
 # Add your pre 'all' code here...
 
-.all-post: .all-impl
+.all-post: .all-impl .tp
 # Add your post 'all' code here...
 
 
@@ -119,7 +121,8 @@ help: .help-post
 .help-post: .help-impl
 # Add your post 'help' code here...
 
-
+.tp:
+	cp $(CND_ARTIFACT_PATH_Release) $(TP)
 
 # include project implementation makefile
 include nbproject/Makefile-impl.mk
