@@ -25,9 +25,9 @@ LectorPNG::LectorPNG(const LectorPNG& orig) {
 }
 
 LectorPNG::~LectorPNG() {
-	if (this->fileptr != NULL) {
-		fclose(this->fileptr);
-	}
+	//	if (this->fileptr != NULL) {
+	//		fclose(this->fileptr);
+	//	}
 }
 
 int LectorPNG::init() {
