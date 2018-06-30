@@ -78,8 +78,8 @@ void test1() {
 int main(int argc, char** argv) {
 	std::string str = "tomo.png";
 	LectorPNG lalala(str.c_str());
-	//lalala.init();
-	//cout << lalala.mostramealgo() << "sadasdsadasdasdasdasdas" << endl;
+	lalala.init();
+	cout << lalala.mostramealgo() << " --  sadasdsadasdasdasdasdas" << endl;
 	return 0;
 }
 

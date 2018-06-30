@@ -18,7 +18,6 @@
 #include "LectorPNG.h"
 
 LectorPNG::LectorPNG(const char* name) {
-
 	strcpy(this->filemane, name);
 }
 
@@ -96,9 +95,9 @@ int LectorPNG::init() {
 
 std::string LectorPNG::mostramealgo() {
 	char datos[100];
-	int i = 60, j = 60;
-	//sprintf(datos, "tam: %d - pos(%i,%i): %i", height, i, j, pos(i, j));
-	return "sdasadasd    ";
+	int i = 1, j = 1;
+	sprintf(datos, "tam: %d - pos(%i,%i): %i", height, i, j, pos(i, j));
+	return datos;
 }
 
 int LectorPNG::pos(int i, int j) {
