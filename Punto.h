@@ -16,6 +16,7 @@
 
 class Punto {
 public:
+	Punto(double x, double y);
 	Punto();
 	Punto(const Punto& orig);
 	virtual ~Punto();
@@ -23,6 +24,7 @@ public:
 	double y;
 	Punto operator+(const Punto p) const;
 	Punto operator*(const double d) const;
+	Punto operator-(const Punto p) const;
 	void normalizar();
 private:
 

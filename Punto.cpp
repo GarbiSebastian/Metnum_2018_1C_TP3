@@ -13,10 +13,18 @@
 #include <math.h>
 #include "Punto.h"
 
+Punto::Punto(double x1, double y1) {
+	this->x = x1;
+	this->y = y1;
+}
+
 Punto::Punto() {
+
 }
 
 Punto::Punto(const Punto& orig) {
+	x = orig.x;
+	y = orig.y;
 }
 
 Punto::~Punto() {
@@ -26,6 +34,13 @@ Punto Punto::operator+(const Punto p) const {
 	Punto res;
 	res.x = p.x + this->x;
 	res.y = p.y + this->y;
+	return res;
+}
+
+Punto Punto::operator-(const Punto p) const {
+	Punto res;
+	res.x = p.x - this->x;
+	res.y = p.y - this->y;
 	return res;
 }
 
