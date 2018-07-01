@@ -32,6 +32,26 @@ bool enRango(Punto &puntito, double limite) {
 	return (puntito.x >= 0 && puntito.y >= 0 && puntito.x < limite && puntito.y < limite);
 }
 
+matrizReal tiraRayo(Punto inicio, Punto dir) {
+	Punto p = inicio;
+	double delta = 0;
+	matrizReal res(10, vectorReal(10, 0));
+	dir.normalizar();
+	while (enRango(p, 10)) {
+		res[floor(p.x)][floor(p.y)] = 1;
+		delta += 0.001;
+		p = inicio + dir*delta;
+	}
+	delta = 0;
+	p = inicio;
+	while (enRango(p, 10)) {
+		res[floor(p.x)][floor(p.y)] = 1;
+		delta -= 0.001;
+		p = inicio + dir*delta;
+	}
+	return res;
+}
+
 void test1() {
 	unsigned int tam = 10;
 	Punto inicio;
@@ -76,10 +96,39 @@ void test1() {
 }
 
 int main(int argc, char** argv) {
-	std::string str = "tomo.png";
-	LectorPNG lalala(str.c_str());
-	lalala.init();
-	cout << lalala.mostramealgo() << " --  sadasdsadasdasdasdasdas" << endl;
+	//	std::string str = "tomo.png";
+	//	LectorPNG lalala(str.c_str());
+	//	lalala.init();
+	//	cout << lalala.mostramealgo() << " --  sadasdsadasdasdasdasdas" << endl;
+	Punto i;
+	Punto d1, d2;
+	double r1, r2;
+	cout << "lalalala" << endl;
+	matrizReal a;
+	for (int f = 0; f < 10; f++) {
+		for (int c = 0; c < 10; c++) {
+			i = Punto(f + .5, c + .5);
+			r1 = rand() % 100;
+			r2 = rand() % 100;
+			d1 = Punto(r1, r2);
+			d2 = Punto(r2, -r1);
+			a = tiraRayo(i, d1);
+			imprimir(a);
+			cout << endl;
+			a = tiraRayo(i, d2);
+			imprimir(a);
+			cout << endl;
+		}
+	}
+	//	i.x = 0.999;
+	//	i.y = 0.999;
+	//	d.x = 0;
+	//	d.y = 1;
+	//	a = tiraRayo(i, d);
+	//	imprimir(a);
+	//	cout << endl;
+
+
 	return 0;
 }
 
